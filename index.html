@@ -15,7 +15,6 @@
             overflow-x: hidden;
         }
 
-        /* Valentine's Day Animation - Hearts */
         .hearts {
             position: fixed;
             width: 100%;
@@ -45,7 +44,6 @@
             padding: 15px;
         }
 
-        /* Header */
         .header {
             text-align: center;
             color: white;
@@ -62,7 +60,6 @@
         }
         .header span { color: #ffeaa7; }
 
-        /* Profile Card */
         .profile-card {
             background: white;
             border-radius: 20px;
@@ -75,17 +72,21 @@
             width: 100%;
             height: 320px;
             object-fit: cover;
-            background: linear-gradient(45deg, #fd79a8, #fdcb6e);
+            /* ФОТО ДЕВУШКИ - замени ссылку ниже на свою */
+            background-image: url('girl.jpg');
+            background-size: cover;
+            background-position: center;
             position: relative;
         }
-        .profile-image::after {
-            content: "💕";
+        /* Затемнение фото для красоты */
+        .profile-image::before {
+            content: "";
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 80px;
-            opacity: 0.5;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
         }
 
         .online-badge {
@@ -103,6 +104,7 @@
             gap: 5px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.2);
             animation: pulse 2s infinite;
+            z-index: 2;
         }
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
@@ -127,6 +129,7 @@
             font-size: 13px;
             font-weight: bold;
             box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            z-index: 2;
         }
 
         .profile-info {
@@ -180,7 +183,6 @@
             margin-bottom: 15px;
         }
 
-        /* CTA Button */
         .cta-button {
             width: 100%;
             background: linear-gradient(135deg, #00b894, #00cec9);
@@ -222,7 +224,6 @@
             border: 2px dashed #fd79a8;
         }
 
-        /* Features */
         .features {
             background: white;
             border-radius: 15px;
@@ -241,7 +242,6 @@
             font-size: 20px;
         }
 
-        /* Age Gate Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -295,7 +295,6 @@
 
         .hidden { display: none !important; }
 
-        /* Fake notifications */
         .notification {
             position: fixed;
             bottom: 20px;
@@ -319,10 +318,8 @@
 </head>
 <body>
 
-    <!-- Floating Hearts Animation -->
     <div class="hearts" id="hearts"></div>
 
-    <!-- Age Gate Modal -->
     <div id="ageGate" class="modal-overlay">
         <div class="modal">
             <div style="font-size: 60px; margin-bottom: 15px;">🔞</div>
@@ -334,13 +331,11 @@
     </div>
 
     <div class="container">
-        <!-- Header -->
         <div class="header">
             <h1>💕 يوم الحب <span>2026</span> 💕</h1>
             <p style="margin-top: 5px; font-size: 14px;">تعارف فوري - محادثات صوتية</p>
         </div>
 
-        <!-- Profile Card -->
         <div class="profile-card">
             <div class="profile-image">
                 <div class="online-badge">
@@ -368,7 +363,6 @@
                     "أبحث عن محادثات ممتعة وصريحة ❤️ أحب الدردشة الصوتية والتعرف على أشخاص جدد في يوم الحب!"
                 </div>
 
-                <!-- CTA Button - THIS TRIGGERS THE CALL -->
                 <button class="cta-button" onclick="makeCall()">
                     📞 اتصل الآن مجانًا
                 </button>
@@ -379,7 +373,6 @@
             </div>
         </div>
 
-        <!-- Features -->
         <div class="features">
             <div class="feature-item">
                 <span class="feature-icon">✅</span>
@@ -399,7 +392,6 @@
             </div>
         </div>
 
-        <!-- Social Proof -->
         <div style="background: white; border-radius: 15px; padding: 15px; text-align: center;">
             <p style="color: #636e72; font-size: 14px; margin-bottom: 10px;">
                 💬 <strong>1,247</strong> رجل اتصلوا اليوم
@@ -413,14 +405,12 @@
         </div>
     </div>
 
-    <!-- Fake Notification -->
     <div id="notification" class="notification">
         <span>🔔</span>
         <span>محمد من القاهرة بدأ مكالمة منذ دقيقة</span>
     </div>
 
     <script>
-        // Create floating hearts
         function createHearts() {
             const container = document.getElementById('hearts');
             for (let i = 0; i < 15; i++) {
@@ -435,10 +425,8 @@
         }
         createHearts();
 
-        // Age Gate
         function confirmAge() {
             document.getElementById('ageGate').classList.add('hidden');
-            // Show notification after 3 seconds
             setTimeout(() => {
                 document.getElementById('notification').classList.add('show');
                 setTimeout(() => {
@@ -451,30 +439,11 @@
             window.location.href = 'https://www.google.com';
         }
 
-        // THIS IS THE KEY FUNCTION - REPLACE WITH YOUR CUPIDY TRACKING LINK
-       function makeCall() {
-    // 1. Показываем в консоли, что клик сработал
-    console.log('✅ КЛИК ЗАФИКСИРОВАН! Начинаем редирект...');
-    
-    // 2. Твоя ссылка
-    var targetUrl = 'https://tone.affomelody.com/click?pid=32162&offer_id=952&sub1=adprofex&sub2=egypt_cup&sub3=pop_call&l=1738756722';
-    
-    // 3. Показываем ссылку в консоли (чтобы ты мог её скопировать и проверить)
-    console.log('🔗 Целевая ссылка:', targetUrl);
-    
-    // 4. Алерт для быстрой проверки (можно убрать потом)
-    // alert('Переход по ссылке:\n' + targetUrl); 
+        // === ГЛАВНАЯ ФУНКЦИЯ - ПЕРЕХОД НА ОФФЕР ===
+        function makeCall() {
+            window.location.href = 'https://tone.affomelody.com/click?pid=32162&offer_id=952&sub1=adprofex&sub2=egypt_cup&sub3=pop_call&l=1738756722';
+        }
 
-    // 5. Пробуем редирект основным способом
-    try {
-        window.location.href = targetUrl;
-    } catch(e) {
-        console.error('❌ Ошибка редиректа:', e);
-        // Запасной вариант: открытие в новом окне
-        window.open(targetUrl, '_blank');
-    }
-}
-        // Auto-show notification periodically
         const notifications = [
             "محمد من القاهرة بدأ مكالمة منذ دقيقة",
             "أحمد من الإسكندرية متصل الآن",
