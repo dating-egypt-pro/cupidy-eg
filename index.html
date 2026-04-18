@@ -452,16 +452,28 @@
         }
 
         // THIS IS THE KEY FUNCTION - REPLACE WITH YOUR CUPIDY TRACKING LINK
-        function makeCall() {
-            // Optional: Add click tracking here
-            
-            // Redirect to Cupidy offer (this triggers the call)
-            window.location.href = 'https://tone.affomelody.com/click?pid=32162&offer_id=952&sub1=adprofex&sub2=egypt_cup&sub3=pop_call&l=1738756722';
-            
-            // Alternative: If you need to pass parameters
-            // window.location.href = 'https://tone.affomelody.com/click?pid=32162&offer_id=952&sub1=adprofex&sub2=egypt_cup&sub3=pop_call&l=1738756722';
-        }
+       function makeCall() {
+    // 1. Показываем в консоли, что клик сработал
+    console.log('✅ КЛИК ЗАФИКСИРОВАН! Начинаем редирект...');
+    
+    // 2. Твоя ссылка
+    var targetUrl = 'https://tone.affomelody.com/click?pid=32162&offer_id=952&sub1=adprofex&sub2=egypt_cup&sub3=pop_call&l=1738756722';
+    
+    // 3. Показываем ссылку в консоли (чтобы ты мог её скопировать и проверить)
+    console.log('🔗 Целевая ссылка:', targetUrl);
+    
+    // 4. Алерт для быстрой проверки (можно убрать потом)
+    // alert('Переход по ссылке:\n' + targetUrl); 
 
+    // 5. Пробуем редирект основным способом
+    try {
+        window.location.href = targetUrl;
+    } catch(e) {
+        console.error('❌ Ошибка редиректа:', e);
+        // Запасной вариант: открытие в новом окне
+        window.open(targetUrl, '_blank');
+    }
+}
         // Auto-show notification periodically
         const notifications = [
             "محمد من القاهرة بدأ مكالمة منذ دقيقة",
